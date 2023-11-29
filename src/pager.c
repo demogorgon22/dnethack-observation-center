@@ -1377,7 +1377,8 @@ do_look(quick)
 {
 	char out_str[LONGBUFSZ];
 	out_str[0] = 0;
-    const char *x_str, *firstmatch = 0;
+    const char *x_str = 0;
+	const char firstmatch[BUFSZ] = {0};
     struct permonst *pm = 0;
     glyph_t sym;		/* typed symbol or converted glyph */
     boolean from_screen;	/* question from the screen */
@@ -1386,6 +1387,7 @@ do_look(quick)
 	int i, ans = 0;
 	coord   cc;			/* screen pos of unknown glyph */
 	boolean force_defsyms = FALSE;	/* force using glyphs from defsyms[].sym */
+	boolean save_verbose = flags.verbose;
 
     if (quick) {
 		from_screen = TRUE;	/* yes, we want to use the cursor */
@@ -1518,6 +1520,7 @@ do_look(quick)
 	} else {
 	    pline("I've never heard of such things.");
 	}
+	flags.verbose = save_verbose;
 	return MOVE_CANCELLED;
 }
 
