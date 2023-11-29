@@ -18,10 +18,10 @@ then
 	else
 		echo "DNH install out of date, updating"
 		rm -rf $CORES_DIR/dnh
-		cp -r /app/dnh $CORES_DIR/
+		cp -r /app/dnh $CORES_DIR/dnh
 	fi
 else
 	echo "DNH install nonexistent, updating"
-	rm -rf $CORES_DIR/
-	cp -r /app/dnh $CORES_DIR/
+	rm -rf $CORES_DIR/dnh
+	cp -r /app/dnh $CORES_DIR/dnh
 fi
